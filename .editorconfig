@@ -1,0 +1,4 @@
+[*.{kt, kts, gradle}]
+indent_size = 2
+# noinspection EditorConfigKeyCorrectness
+continuation_indent_size = 4

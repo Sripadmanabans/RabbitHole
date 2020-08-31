@@ -1,0 +1,77 @@
+plugins {
+  id "com.android.application"
+  id "org.jetbrains.kotlin.android"
+}
+
+android {
+  compileSdkVersion buildConfig.compileSdk
+
+  defaultConfig {
+    applicationId "com.adjectivemonk2.rabbithole"
+    minSdkVersion buildConfig.minSdk
+    targetSdkVersion buildConfig.targetSdk
+    versionCode buildConfig.version.code
+    versionName buildConfig.version.name
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+    useIR = true
+  }
+  buildFeatures {
+    compose true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion versions.compose
+    kotlinCompilerVersion versions.kotlin
+  }
+}
+
+dependencies {
+
+  implementation deps.kotlin.stdlib.jdk
+  
+  implementation deps.androidx.core
+  implementation deps.androidx.appCompat
+  implementation deps.material
+  
+  implementation deps.compose.compiler
+  
+  implementation deps.compose.animation.animation
+  implementation deps.compose.animation.core
+  
+  implementation deps.compose.foundation.foundation
+  implementation deps.compose.foundation.layout
+  implementation deps.compose.foundation.text
+
+  implementation deps.compose.material.material
+  implementation deps.compose.material.icons.core
+  implementation deps.compose.material.icons.extended
+
+  implementation deps.compose.runtime.runtime
+  implementation deps.compose.runtime.dispatch
+  implementation deps.compose.runtime.livedata
+  implementation deps.compose.runtime.savedState
+
+  implementation deps.compose.ui.ui
+  implementation deps.compose.ui.geometry
+  implementation deps.compose.ui.graphics
+  implementation deps.compose.ui.text
+  implementation deps.compose.ui.textAndroid
+  implementation deps.compose.ui.tooling
+  implementation deps.compose.ui.unit
+  implementation deps.compose.ui.util
+  implementation deps.compose.ui.viewBinding
+}
