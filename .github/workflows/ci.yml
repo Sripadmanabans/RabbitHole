@@ -58,20 +58,6 @@ jobs:
       - name: Assemble with gradle
         run: ./gradlew assemble --build-cache --no-daemon --stacktrace --gradle-user-home "$GRADLE_HOME"
 
-      - name: Upload build outputs
-          if: always()
-          uses: actions/upload-artifact@v1
-          with:
-            name: build-outputs
-            path: app/build/outputs/
-
-      - name: Upload build reports
-          if: always()
-          uses: actions/upload-artifact@v1
-          with:
-            name: build-reports
-            path: app/build/reports
-
   # Runs all check tasks in parallel.
   check:
     name: Check
@@ -109,14 +95,12 @@ jobs:
         run: ./gradlew ${{ matrix.gradle-task }} --build-cache --no-daemon --stacktrace --gradle-user-home "$GRADLE_HOME"
 
       - name: Copy test results
-        if: always()
         run: |
           mkdir -p junit
           find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} junit/ \;
 
       - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: junit-results
           path: junit

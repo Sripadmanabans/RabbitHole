@@ -30,6 +30,7 @@ out/
 .gradle/
 build/
 local.properties
+!gradle/wrapper/gradle-wrapper.jar
 
 # Intellij
 *.iml
