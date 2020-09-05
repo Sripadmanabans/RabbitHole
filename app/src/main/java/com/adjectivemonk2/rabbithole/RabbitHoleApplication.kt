@@ -1,17 +1,20 @@
 package com.adjectivemonk2.rabbithole
 
 import android.app.Application
-import com.adjectivemonk2.rabbithole.timber.LogcatTree
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
+import timber.log.Tree
 import timber.log.verbose
+import javax.inject.Inject
 
-// TODO Need to remove suppression after this[https://github.com/Sripadmanabans/RabbitHole/issues/3]
-@Suppress("unused")
+@HiltAndroidApp
 class RabbitHoleApplication : Application() {
+
+  @Inject internal lateinit var tree: Tree
 
   override fun onCreate() {
     super.onCreate()
-    Timber.plant(LogcatTree())
+    Timber.plant(tree)
     Timber.verbose { "onCreate" }
   }
 }

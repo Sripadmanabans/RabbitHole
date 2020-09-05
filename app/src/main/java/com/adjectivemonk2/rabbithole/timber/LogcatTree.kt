@@ -7,9 +7,10 @@ import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import javax.inject.Inject
 import kotlin.math.min
 
-class LogcatTree : Tree() {
+class LogcatTree @Inject constructor() : Tree() {
 
   override fun performLog(priority: Int, tag: String?, throwable: Throwable?, message: String?) {
     val safeTag = tag.asSafeTag()
