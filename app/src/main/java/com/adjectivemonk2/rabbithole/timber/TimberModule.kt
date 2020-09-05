@@ -8,7 +8,7 @@ import timber.log.Tree
 
 @Module
 @InstallIn(ApplicationComponent::class)
-abstract class TimberModule {
+internal abstract class TimberModule {
 
   @Binds abstract fun bindTree(tree: LogcatTree): Tree
 }
