@@ -187,6 +187,7 @@ allprojects {
           "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
           "-Xopt-in=kotlinx.coroutines.FlowPreview",
           "-Xopt-in=kotlin.Experimental",
+          "-Xopt-in=kotlin.RequiresOptIn",
           "-Xopt-in=kotlin.time.ExperimentalTime",
           "-Xallow-jvm-ir-dependencies",
       ]

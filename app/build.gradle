@@ -74,4 +74,6 @@ dependencies {
   implementation deps.compose.ui.unit
   implementation deps.compose.ui.util
   implementation deps.compose.ui.viewBinding
+
+  implementation deps.timber.android
 }
