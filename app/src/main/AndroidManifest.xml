@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.adjectivemonk2.rabbithole">
 
+  <uses-permission android:name="android.permission.INTERNET" />
+
   <application
+      android:name=".RabbitHoleApplication"
       android:allowBackup="true"
       android:fullBackupContent="@xml/backup_descriptor"
       android:icon="@mipmap/ic_launcher"
