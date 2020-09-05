@@ -2,6 +2,7 @@ plugins {
   id "com.android.application"
   id "org.jetbrains.kotlin.android"
   id "org.jetbrains.kotlin.kapt"
+  id "org.jetbrains.kotlin.plugin.serialization"
   id "dagger.hilt.android.plugin"
 }
 
@@ -16,44 +17,42 @@ android {
     versionName buildConfig.version.name
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    buildConfigField 'String', 'PUBLIC_KEY', "\"${getProperty('RABBIT_HOLE_PUBLIC_KEY')}\""
+    buildConfigField 'String', 'PRIVATE_KEY', "\"${getProperty('RABBIT_HOLE_PRIVATE_KEY')}\""
   }
 
   buildTypes {
     release {
-      minifyEnabled false
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-  kotlinOptions {
-    jvmTarget = '1.8'
-    useIR = true
-  }
+
   buildFeatures {
     compose true
   }
+
   composeOptions {
+    kotlinCompilerVersion versions.kotlin.runtime
     kotlinCompilerExtensionVersion versions.compose
-    kotlinCompilerVersion versions.kotlin
   }
 }
 
 dependencies {
 
   implementation deps.kotlin.stdlib.jdk
-  
+  implementation deps.kotlin.serialization.core
+
   implementation deps.androidx.core
   implementation deps.androidx.appCompat
   implementation deps.material
-  
+
   implementation deps.compose.compiler
-  
+
   implementation deps.compose.animation.animation
   implementation deps.compose.animation.core
-  
+
   implementation deps.compose.foundation.foundation
   implementation deps.compose.foundation.layout
   implementation deps.compose.foundation.text
@@ -85,4 +84,16 @@ dependencies {
   implementation deps.androidx.hilt.common
   implementation deps.androidx.hilt.viewmodel
   kapt deps.androidx.hilt.compiler
+
+  implementation deps.okhttp.client
+  implementation deps.okhttp.logging
+
+  implementation deps.retrofit.client
+  implementation deps.retrofit.converter
+
+  implementation deps.byteunits
+
+  implementation deps.androidx.lifecycle.livedata
+  implementation deps.androidx.lifecycle.runtime
+  implementation deps.androidx.lifecycle.viewmodel
 }
