@@ -122,7 +122,7 @@ buildscript {
 
   ext.classpaths = [
       "android"      : "com.android.tools.build:gradle:4.2.0-alpha09",
-      "ben"          : "com.github.ben-manes:gradle-versions-plugin:0.29.0",
+      "ben"          : "com.github.ben-manes:gradle-versions-plugin:0.30.0",
       "hilt"         : "com.google.dagger:hilt-android-gradle-plugin:${versions.dagger}-alpha",
       "ktlint"       : "org.jlleitschuh.gradle:ktlint-gradle:9.3.0",
       "detekt"       : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.12.0",
