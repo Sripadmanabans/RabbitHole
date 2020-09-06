@@ -36,7 +36,7 @@ internal object OkhttpModule {
           taggedTree.verbose { message }
         }
       }
-    ).apply { level = HttpLoggingInterceptor.Level.BODY }
+    ).apply { level = HttpLoggingInterceptor.Level.BASIC }
   }
 
   @Provides fun okhttp(

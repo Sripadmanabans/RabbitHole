@@ -25,6 +25,7 @@ internal object RetrofitModule {
   @Provides fun json(): Json {
     return Json {
       isLenient = true
+      ignoreUnknownKeys = true
     }
   }
 
