@@ -29,6 +29,11 @@ android {
     }
   }
 
+  kotlinOptions {
+    jvmTarget = '1.8'
+    useIR = true
+  }
+
   buildFeatures {
     compose true
   }
@@ -41,10 +46,13 @@ android {
 
 dependencies {
 
+  implementation project(":models")
+
   implementation deps.kotlin.stdlib.jdk
   implementation deps.kotlin.serialization.core
 
   implementation deps.androidx.core
+  implementation deps.androidx.activity
   implementation deps.androidx.appCompat
   implementation deps.material
 
@@ -75,6 +83,8 @@ dependencies {
   implementation deps.compose.ui.unit
   implementation deps.compose.ui.util
   implementation deps.compose.ui.viewBinding
+
+  implementation deps.compose.coil
 
   implementation deps.timber.android
 

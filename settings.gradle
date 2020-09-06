@@ -1,5 +1,6 @@
 rootProject.name = "RabbitHole"
 
 include ':app'
+include ':models'
 
 enableFeaturePreview("GRADLE_METADATA")
