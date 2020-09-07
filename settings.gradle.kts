@@ -1,6 +1,8 @@
 rootProject.name = "RabbitHole"
 
-include ':app'
-include ':models'
+listOf(
+  ":app",
+  ":models"
+).forEach { include(it) }
 
 enableFeaturePreview("GRADLE_METADATA")
